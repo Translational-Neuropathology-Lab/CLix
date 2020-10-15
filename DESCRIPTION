@@ -1,0 +1,20 @@
+Package: CLix
+Title: Melissa Murray's Alzheimer's Package
+Version: 0.0.0.9000
+Authors@R: as.person(c(
+    "Melissa Murray <murray.melissa@mayo.edu [aut]",
+    "Julia Crook <crook.julia@mayo.edu [aut]",
+    "Pat Johnson <Johnson.Patrick3@mayo.edu> [aut]", 
+    "Elizabeth Lesser <lizafeld@live.com> [aut, cre]"
+  ))  
+Description: Alzheimer's Research Functions.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1.9000
+Imports: 
+    magrittr,
+    dplyr
+Depends: 
+    R (>= 2.10)
