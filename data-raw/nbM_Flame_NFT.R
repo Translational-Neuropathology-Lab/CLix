@@ -1,4 +1,14 @@
 ## code to prepare `nbM_Flame_NFT` dataset goes here
-nbM_Flame_NFT <- readRDS("data/nbM_Flame_NFT.rds")
+nbM_Flame_NFT <- readRDS("data-raw/nbM_Flame_NFT.rds") %>%
+  mutate(
+    H1 = as.numeric(H1),
+    H2 = as.numeric(H2),
+    C1 = as.numeric(C1),
+    C2 = as.numeric(C2),
+    C3 = as.numeric(C3)
+  )
+
+example_data <- readRDS("data-raw/example_data.rds")
 
 usethis::use_data(nbM_Flame_NFT, overwrite = TRUE)
+usethis::use_data(example_data, overwrite = T)
