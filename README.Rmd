@@ -1,0 +1,84 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# CLix
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of CLix is to house a variety of functions that help in Alzheimer's Research in one convenient place for analysis.
+
+## Installation
+
+You can install the released version of CLix from [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("CLix")
+```
+
+## Example
+
+This is a basic example which shows you how to solve score a dataset using the developed CLix algorithm:
+
+First load the data to be scored.
+
+```{r first}
+library(CLix)
+library(tidyverse)
+
+dat <- readRDS("data/example_data.rds") %>% 
+  select(
+    NPID, 
+    AD.subtype, 
+    CA1.NFT, 
+    Subiculum.NFT, 
+    Temporal.NFT, 
+    Parietal.NFT, 
+    Frontal.NFT
+  ) %>% 
+  rename(
+    H1 = CA1.NFT, 
+    H2 = Subiculum.NFT, 
+    C1 = Temporal.NFT, 
+    C2 = Parietal.NFT, 
+    C3 = Frontal.NFT
+  ) %>% 
+  mutate(
+    AD.subtype = factor(AD.subtype, levels = c("HpSp", "Typical", "Limbic"))
+  )
+```
+
+Second use the CLix algorithm to score the new data against the nbM Flame Cohort (as the reference).
+```{r, second}
+res <- HpSp.scoring(dat = dat) %>% 
+  select(NPID, HpSp.score.subtype, HpSp.score) %>% 
+  mutate(
+    HpSp.score.subtype = factor(HpSp.score.subtype, levels = c("HpSp", "Typical", "Limbic"))
+  )
+rescored_dat <- res %>% 
+  inner_join(dat, by = "NPID")
+```
+
+
+Third compare the original AD subtype to the newly assigned AD subtype
+
+```{r comparison, results='asis'}
+arsenal::tableby(
+  HpSp.score.subtype ~ AD.subtype, 
+  data = rescored_dat, 
+  total = F
+) %>% 
+  summary()
+```
