@@ -1,18 +1,21 @@
 Package: CLix
-Title: Melissa Murray's Alzheimer's Package
-Version: 0.0.0.9000
+Title: Corticolimbic Index for Alzheimer's Disease
+Version: 0.9.0.0
 Authors@R: as.person(c(
     "Melissa Murray <murray.melissa@mayo.edu [aut]",
+    "Naomi Kouri <kouri.naomi@mayo.edu> [aut]",
+    "Zhongwei Peng <peng.zhongwei@mayo.edu> [aut],[cre]",
+    "Rain kwan <kwan.rain@mayo.edu> [aut],[cre]",
+    "Rickey Carter <carter.rickey@mayo.edu> [aut]",
     "Julia Crook <crook.julia@mayo.edu [aut]",
-    "Pat Johnson <Johnson.Patrick3@mayo.edu> [aut]", 
-    "Elizabeth Lesser <lizafeld@live.com> [aut, cre]"
+    "Elizabeth Lesser <lizafeld@live.com> [aut]"
   ))  
-Description: Alzheimer's Research Functions.
-License: MIT + file LICENSE
+Description: Corticolimbic Index (CLix) Package
+License: License: GPL (>= 2)
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1.9000
+RoxygenNote: 7.2.3
 Imports: 
     magrittr,
     dplyr

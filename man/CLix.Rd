@@ -3,10 +3,15 @@
 \docType{package}
 \name{CLix}
 \alias{CLix}
-\title{Melissa Murray's Alzheimer's Package}
+\title{Corticolimbic Index (CLix) Package}
 \description{
-Alzheimer's Research Functions
+The goal of CLix is to personalize the Alzheimer's disease (AD) subtype algorithm by expressing it as a
+continuous numeric corticolimbic index (CLix). It was derived using tangle count distributions
+from AD cases within the Florida Autopsy Multi-Ethnic series (FLAME-AD) to investigate clinical and demogaphic correlates.
 }
 \details{
-\code{CLix} package
+The original algorithm was built upon a smaller cohort of AD cases (n=889) from a \href{https://doi.org/10.1016/S1474-4422(11)70156-9}{previous study}.
+The algorithm was then improved and tested with the current FLAME-AD cohort (n=1361).
+\cr
+\cr Developed by the \href{https://www.mayo.edu/research/labs/translational-neuropathology/overview}{Translational Neuropathology Lab} led by Dr. Melissa E. Murray at Mayo Clinic Florida
 }

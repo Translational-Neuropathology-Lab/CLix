@@ -18,19 +18,12 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of CLix is to house a variety of functions that help in Alzheimer's Research in one convenient place for analysis.
+The goal of CLix is to personalize the Alzheimer's disease (AD) subtype algorithm by expressing it as a continuous numeric corticolimbic index (CLix). 
 
-## Installation
-
-You can install the released version of CLix from [CRAN](https://CRAN.R-project.org) with:
-
-``` r
-install.packages("CLix")
-```
 
 ## Example
 
-This is a basic example which shows you how to solve score a dataset using the developed CLix algorithm:
+This is a basic example which shows you how to generate a score for a dataset using the developed CLix algorithm:
 
 First load the data to be scored.
 
@@ -60,23 +53,23 @@ dat <- example_data %>%
   )
 ```
 
-Second use the CLix algorithm to score the new data against the nbM Flame Cohort (as the reference).
+Second use the CLix algorithm to score the new data against the FLAME-AD Cohort (as the reference dataset).
 ```{r, second}
-res <- HpSp.scoring(dat = dat) %>% 
-  select(NPID, HpSp.score.subtype, HpSp.score) %>% 
+res <- CLix.scoring(dat = dat) %>% 
+  select(NPID, CLix.score.subtype, CLix.score) %>% 
   mutate(
-    HpSp.score.subtype = factor(HpSp.score.subtype, levels = c("HpSp", "Typical", "Limbic"))
+    CLix.score.subtype = factor(CLix.score.subtype, levels = c("HpSp", "Typical", "Limbic"))
   )
 rescored_dat <- res %>% 
   inner_join(dat, by = "NPID")
 ```
 
 
-Third compare the original AD subtype to the newly assigned AD subtype
+Third, compare the original AD subtype to the newly assigned AD subtype.
 
 ```{r comparison, results='asis'}
 arsenal::tableby(
-  HpSp.score.subtype ~ AD.subtype, 
+  CLix.score.subtype ~ AD.subtype, 
   data = rescored_dat, 
   total = F
 ) %>% 
