@@ -8,7 +8,5 @@ nbM_Flame_NFT <- readRDS("data-raw/nbM_Flame_NFT.rds") %>%
     C3 = as.numeric(C3)
   )
 
-example_data <- readRDS("data-raw/example_data.rds")
 
 usethis::use_data(nbM_Flame_NFT, overwrite = TRUE)
-usethis::use_data(example_data, overwrite = T)

@@ -38,7 +38,7 @@ First load the data to be scored.
 library(CLix)
 library(tidyverse)
 
-dat <- readRDS("data/example_data.rds") %>% 
+dat <- example_data %>% 
   select(
     NPID, 
     AD.subtype, 
