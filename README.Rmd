@@ -27,10 +27,12 @@ This is a basic example which shows you how to generate a score for a dataset us
 
 First load the data to be scored.
 
-```{r first}
+```{r first, include = FALSE}
 library(CLix)
 library(tidyverse)
+```
 
+```{r}
 dat <- example_data %>% 
   select(
     NPID, 
