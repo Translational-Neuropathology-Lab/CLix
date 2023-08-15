@@ -29,8 +29,7 @@
 #' @importFrom dplyr mutate
 NULL
 ## quiets concerns of R CMD check re: the .'s that appear in pipelines
-utils::globalVariables(c("nbM_Flame_NFT",
-                         "H1",
+utils::globalVariables(c("H1",
                          "H2",
                          "C1",
                          "C2",
