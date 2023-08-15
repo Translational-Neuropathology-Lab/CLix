@@ -19,7 +19,8 @@ CLix.scoring <- function(dat = NA,
                          crit.values=T){
 
   if(is.na(reference.dat))
-    reference.dat <- nbM_Flame_NFT
+    reference.dat <- NA
+    
 
   if(!is.na(sum(posHC.dat)))
   {names(dat)[posHC.dat]<-c('H1','H2','C1','C2','C3')}
