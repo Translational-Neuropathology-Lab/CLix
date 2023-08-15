@@ -40,11 +40,15 @@ dat <- example_data %>%
   )
 ```
 
-Second use the CLix algorithm to score the new data against the FLAME-AD
-Cohort (as the reference dataset).
+Second use the CLix algorithm to score the new data against the
+reference dataset.
+
+In this example, we are using our own FLAME-AD dataset as the reference
+dataset, in your own code, please replace NA with the name of your
+dataset for reference.dat.
 
 ``` r
-res <- CLix.scoring(dat = dat) %>% 
+res <- CLix.scoring(dat = dat, reference.dat = NA) %>% 
   select(NPID, CLix.score.subtype, CLix.score) %>% 
   mutate(
     CLix.score.subtype = factor(CLix.score.subtype, levels = c("HpSp", "Typical", "Limbic"))
@@ -65,7 +69,12 @@ rescored_dat <- res %>%
   inner_join(dat, by = "NPID")
 ```
 
-Third, compare the original AD subtype to the newly assigned AD subtype.
+If you would like to replicate our findings using our reference dataset
+FLAME-AD, please reach out to us at peng.zhongwei@mayo.edu or
+kwan.rain@mayo.edu.
+
+Third, we will compare the original AD subtype to the newly assigned AD
+subtype for our datasets.
 
 ``` r
 arsenal::tableby(

@@ -3,7 +3,7 @@
 #' This function will return a continuous measurement, corticolimbic index (CLix.score), along with a confidence interval. It will also assign an AD subtype (CLix.score.subtype) based on the Neurofibrillary Tangle (NFT) counts of five key brain regions for each case.
 #' @param dat The data provided by the user. The dataset must contain the column names: "H1", "H2", "C1", "C2", and "C3".	\cr
 #' \cr H1 and H2 refer to the neurofibrillary tangle (NFT) counts in the hippocampal subsectors of CA1 and Subiculum; C1, C2 and C3 refer to the NFT counts in the cortical regions of Temporal, Parietal and Frontal.
-#' @param reference.dat The reference dataset that can either be user provided or the built-in dataset FLAME-AD. \cr
+#' @param reference.dat The reference dataset is user provided and our findings use the FLAME-AD cohort which can be provided upon request. \cr
 #' \cr The FLAME-AD cohort represents the data from AD cases in the larger Florida Autopsied Multi-Ethnic series (n=1361).
 #' @param idname The unique identifier for each case, the default is NPID.
 #' @param posHC.dat The default is NA.
